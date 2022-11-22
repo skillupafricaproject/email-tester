@@ -11,8 +11,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 const add = require("./routes/add")
+const substrate = require("./routes/substrate")
 
 app.use("/add", add)
+app.use("/substrate", substrate)
 
 
 
