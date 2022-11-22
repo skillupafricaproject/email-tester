@@ -9,11 +9,24 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const add = require('./routes/add');
-const substrate = require('./routes/substrate');
 
-app.use('/add', add);
-app.use('/substrate', substrate);
+app.use(cors())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+
+
+const add = require("./routes/add")
+const divide = require("./routes/divide")
+const mult = require("./routes/mult")
+const substrate = require("./routes/substrate")
+
+
+app.use("/add", add)
+app.use("/divide", divide)
+app.use("/mult", mult)
+app.use("/substrate", substrate)
+
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
