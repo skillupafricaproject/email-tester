@@ -30,7 +30,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-
+// hahahahahahahahahahahahahahahahah
 transporter.verify(function (error, success) {
   if (error) {
     console.log(error);
