@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express()
+const nodemailer = require('nodemailer');
 require("dotenv/config")
 
 const cors = require("cors");
@@ -13,7 +14,6 @@ const add = require("./routes/add")
 
 app.use("/add", add)
 
-const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -39,7 +39,16 @@ transporter.verify(function (error, success) {
   }
 });
 
-
+transporter.sendMail({
+  from: '"Node tes👻" <foo@example.com>', // sender address
+  to: "festuspeteragbo@gmail.com", // list of receivers
+  subject: "we are good to go", // Subject line
+  // text: "Trying from the server with env keys", // plain text body
+  html: "<b>Hello from Miebaka</b>", // html body
+}).then(info => {
+  console.log(info.response);
+  console.log(info.messageId);
+})
 
 const PORT = process.env.PORT || 3001
 
